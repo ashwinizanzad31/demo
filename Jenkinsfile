@@ -1,11 +1,11 @@
 pipeline {
     agent any
    stages {     
-    stage('Maven Install') { 
+    stage('Maven Install') {
+      
   steps {
-       docker.image('maven:3.3.3-jdk-8').inside {
-  sh 'mvn -B clean install'
-}
+      sh 'docker pull maven:3.5.0'
+       sh 'mvn clean install'
        }
      }
    }
