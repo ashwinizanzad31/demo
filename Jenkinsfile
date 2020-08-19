@@ -1,40 +1,15 @@
-pipeline{
-  agent any
-  stages {
-  stage ('Clean') {
-
-steps{
-    git credentialsId: 'Github', url: 'https://github.com/ashwinizanzad31/demo.git'
-
-    withMaven(
-        maven: 'maven-3') {
-      sh "mvn clean"
-
-    } 
-}
-  }
-  stage('Build'){
-steps{
-      withMaven(
-        maven: 'maven-3') {
-      sh "mvn test"
-
-    } 
-  }
-}
-  
-   stage('Test'){
-steps{
- echo('Testing Code ')
- echo('Building other pipeline') 
-  build 'MyDotNetPipeline'
-}
+pipeline {
+    agent none
+   stages {     
+    stage('Maven Install') {
+      agent {         
+       docker {          
+         image 'maven:3.5.0'         
+     }       
+  }       
+  steps {
+       sh 'mvn clean install'
+       }
+     }
+   }
  }
-  
-   stage('Deploy'){
-steps{
-      echo('Deploying Code ') 
-  }
-}
-  }
-}
