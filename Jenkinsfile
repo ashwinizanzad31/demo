@@ -25,6 +25,7 @@ steps{
 steps{
  echo('Testing Code ')
  echo('Building other pipeline') 
+   sh 'make check || true' 
   build 'MyDotNetPipeline'
 }
  }
