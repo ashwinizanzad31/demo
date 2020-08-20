@@ -48,7 +48,8 @@ steps{
   }
   post {
         failure {
-            mailto: 'team@example.com', subject: 'The Pipeline failed :('
+          echo("**********************FAILED******************") 
+            //mailto: 'team@example.com', subject: 'The Pipeline failed :('
         }
     }
 }
