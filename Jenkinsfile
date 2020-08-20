@@ -46,9 +46,4 @@ steps{
   }
 }
   }
-  post{
-  failure {
-            mail to: ashwini.zanzad@elliemae.com, subject: 'The Pipeline failed :('
-        }
-  }
 }
