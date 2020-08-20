@@ -15,7 +15,8 @@ steps{
 steps{
       withMaven(
         maven: 'maven-3') {
-      sh "mvn test"
+      //sh "mvn test"
+        echo 'Build phase'
 
     } 
   }
@@ -25,12 +26,17 @@ steps{
 steps{
  echo('Testing Code ')
  echo('Building other pipeline') 
-   sh 'make check || true' 
-  build 'MyDotNetPipeline'
+   sh 'Testing code' 
+  //build 'MyDotNetPipeline'
 }
  }
   
    stage('Deploy'){
+      when {
+              expression {
+                currentBuild.result == null || currentBuild.result == 'SUCCESS' 
+              }
+            }
 steps{
       echo('Deploying Code ') 
   }
