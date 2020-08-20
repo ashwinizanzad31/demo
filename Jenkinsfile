@@ -30,7 +30,7 @@ steps{
 steps{
  echo('Testing Code ')
  //echo('Building other pipeline') 
-  //build 'MyDotNetPipeline'
+  build 'MyDotNetPipeline'
   echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
 }
  }
@@ -45,5 +45,10 @@ steps{
       echo('Deploying Code ') 
   }
 }
+  }
+  post{
+  failure {
+            mail to: ashwini.zanzad@elliemae.com, subject: 'The Pipeline failed :('
+        }
   }
 }
