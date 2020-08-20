@@ -49,7 +49,7 @@ steps{
   post {
         failure {
           echo("**********************FAILED******************")
-       mail bcc: 'ashwini.zanzad31@gmail.com', body: "<b>Example</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> URL de build: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: 'ashwini.zanzad31@gmail.com', mimeType: 'text/html', replyTo: 'ashwini.zanzad31@gmail.co.', subject: "ERROR CI: Project name -> ${env.JOB_NAME}", to: "ashwini.zanzad31@gmail.com";  
+       mail bcc: 'ashwini.zanzad31@gmail.com', body: "<b>Example</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> URL de build: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: 'ashwini.zanzad31@gmail.com', mimeType: 'text/html', replyTo: 'ashwini.zanzad31@gmail.com', subject: "ERROR CI: Project name -> ${env.JOB_NAME}", to: "ashwini.zanzad31@gmail.com";  
 
             //mailto: 'team@example.com', subject: 'The Pipeline failed :('
         }
