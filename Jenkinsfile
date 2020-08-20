@@ -1,11 +1,15 @@
 pipeline{
   agent any
+  parameters {
+        string(name: 'Greeting', defaultValue: 'Hello', description: 'How should I greet the world?')
+    }
   stages {
   stage ('Clean') {
 
 steps{
     withMaven(
         maven: 'maven-3') {
+       echo "${params.Greeting} World!"
       sh "mvn clean"
 
     } 
